@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Appareils Photo{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Nos Appareils Photo</h2>
+<div class="row">
+    {% for appareil in appareils %}
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ appareil.marque }} - {{ appareil.modele }}</h5>
+                <p class="card-text">Année : {{ appareil.date }}</p>
+                <p class="card-text">Score : ⭐ {{ appareil.score }}/5</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

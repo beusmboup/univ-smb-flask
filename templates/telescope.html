@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}Téléscopes{% endblock %}
+
+{% block content %}
+<h2 class="text-center">Nos Téléscopes</h2>
+<div class="row">
+    {% for tele in teles %}
+    <div class="col-md-4">
+        <div class="card mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ tele.marque }} - {{ tele.modele }}</h5>
+                <p class="card-text">Année : {{ tele.date }}</p>
+                <p class="card-text">Score : ⭐ {{ tele.score }}/5</p>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
