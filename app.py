@@ -31,6 +31,7 @@ def register():
             flash('Ce nom d\'utilisateur est déjà pris.', 'danger')
             return redirect(url_for('register'))
 
+
         # Hasher le mot de passe et l'enregistrer
         hashed_password = generate_password_hash(password, method='pbkdf2:sha256')
         user = User(username=username, password=hashed_password)
@@ -79,7 +80,7 @@ def photo():
 @app.route("/photography")
 def photography():
     photos = [
-        {"titre": "Nuit étoilée", "url": "images/photo1.jpg"},
+        {"titre": "Nuit étoilée", "url": "images/7503.jpg"},
         {"titre": "Aurore boréale", "url": "images/photo2.jpg"},
         {"titre": "Voie lactée", "url": "images/photo3.jpg"}
     ]
@@ -89,9 +90,9 @@ def photography():
 @app.route("/telescope")
 def telescope():
     teles = [
-        {"marque": "Celestron", "modele": "AstroMaster 70AZ", "date": "2020", "score": 4},
-        {"marque": "Skywatcher", "modele": "Skymax 127", "date": "2021", "score": 5},
-        {"marque": "Orion", "modele": "StarBlast 4.5", "date": "2019", "score": 3}
+        {"marque": "Celestron", "modele": "AstroMaster 70AZ", "date": "2020", "score": 4, "image": "telescope1.jpg"},
+        {"marque": "Skywatcher", "modele": "Skymax 127", "date": "2021", "score": 5, "image": "telescope2.jpg"},
+        {"marque": "Orion", "modele": "StarBlast 4.5", "date": "2019", "score": 3, "image": "telescope3.jpg"}
     ]
     return render_template('telescope.html', teles=teles)
 

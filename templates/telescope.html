@@ -1,20 +1,27 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Télescopes</title>
+</head>
+<body>
 
-{% block title %}Téléscopes{% endblock %}
+    <h1>Liste des Télescopes</h1>
+    
+    <div>
+        {% for telescope in teles %}
+            <div style="margin-bottom: 20px; border: 1px solid #ddd; padding: 10px;">
+                <h2>{{ telescope.marque }} - {{ telescope.modele }}</h2>
+                <p>Date : {{ telescope.date }}</p>
+                <p>Score : {{ telescope.score }}/5</p>
+                
+                <!-- Affichage de l'image du télescope -->
+                <img src="{{ url_for('static', filename='images/' + telescope.image) }}" alt="{{ telescope.modele }}" width="500" class="{{ telescope.classe }}">
 
-{% block content %}
-<h2 class="text-center">Nos Téléscopes</h2>
-<div class="row">
-    {% for tele in teles %}
-    <div class="col-md-4">
-        <div class="card mb-3">
-            <div class="card-body">
-                <h5 class="card-title">{{ tele.marque }} - {{ tele.modele }}</h5>
-                <p class="card-text">Année : {{ tele.date }}</p>
-                <p class="card-text">Score : ⭐ {{ tele.score }}/5</p>
             </div>
-        </div>
+        {% endfor %}
     </div>
-    {% endfor %}
-</div>
-{% endblock %}
+
+</body>
+</html>
